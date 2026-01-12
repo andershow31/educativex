@@ -7,12 +7,14 @@ public class Atividades implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String nome;
 	private Long id;
+	private Materia materia;
 	public Atividades(){}	
 	
-	public Atividades(String nome, Long id) {
+	public Atividades(String nome, Long id, Materia materia) {
 		super();
 		this.nome = nome;
 		this.id = id;
+		this.materia = materia;
 	}
 
 	public String getNome() {
@@ -26,6 +28,14 @@ public class Atividades implements Serializable{
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Materia getMateria() {
+		return materia;
+	}
+
+	public void setMateria(Materia materia) {
+		this.materia = materia;
 	}
 
 	@Override

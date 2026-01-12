@@ -1,6 +1,7 @@
 package com.educativex.educativex.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Materia implements Serializable{
@@ -8,14 +9,18 @@ public class Materia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String nome_materia;
 	private AnoEscolar anoEscolar;
+	private Professor professor;
+	private ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
 	public Materia(){}
 	
 	
 	
-	public Materia(String nome_materia, AnoEscolar anoEscolar) {
+	public Materia(String nome_materia, AnoEscolar anoEscolar, Professor professor, ArrayList<Aluno> listaAlunos) {
 		super();
 		this.nome_materia = nome_materia;
 		this.anoEscolar = anoEscolar;
+		this.professor = professor;
+		this.listaAlunos = listaAlunos;
 	}	
 	
 
@@ -34,6 +39,17 @@ public class Materia implements Serializable{
 		this.nome_materia = nome_materia;
 	}
 
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public ArrayList<Aluno> getListaAlunos() {
+		return listaAlunos;
+	}
 
 
 	@Override
