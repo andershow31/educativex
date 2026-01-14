@@ -5,7 +5,10 @@ import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -18,6 +21,14 @@ public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)// a segunda anotação serve para criar um id automatico e ir incrementando, indica também que esta será a identificação
+	private Long id;
+	@Column(nullable = false)
+	private String nome;
+	private String email;
+	private String senha;
+	
 	public Usuario() {
 	}	
 	
@@ -25,15 +36,8 @@ public class Usuario implements Serializable{
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
+		}
 	
-	@Id
-	private Long id;
-	private String nome;
-	private String email;
-	private String senha;
 
 	public Long getId() {
 		return id;
