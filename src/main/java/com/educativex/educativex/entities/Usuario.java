@@ -7,9 +7,13 @@ import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(name = "tb_usuario",
+uniqueConstraints = 
+@UniqueConstraint(columnNames = {"nome", "email"})
+) //as linhas serão unicas com este comando
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;

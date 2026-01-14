@@ -10,8 +10,8 @@ public class Aluno extends Usuario{
 		super();
 	}
 
-	public Aluno(Long id, String nome, String email, String senha, String matricula) {
-		super(id, nome, email, senha);
+	public Aluno(String matricula) {
+		super();
 		this.matricula = matricula;
 	}
 
