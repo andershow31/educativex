@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 
+import com.educativex.educativex.entities.enums.Tipo_usuario;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,14 +30,17 @@ public class Usuario implements Serializable{
 	private String nome;
 	private String email;
 	private String senha;
-	
+	private Tipo_usuario tipo_usuario;
 	public Usuario() {
 	}	
 	
-	public Usuario(Long id, String nome, String email, String senha) {
+	public Usuario(Long id, String nome, String email, String senha, Tipo_usuario tipo_usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.tipo_usuario = tipo_usuario;
 		}
 	
 
@@ -62,6 +67,14 @@ public class Usuario implements Serializable{
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public Tipo_usuario getTipo_usuario() {
+		return tipo_usuario;
+	}
+
+	public void setTipo_usuario(Tipo_usuario tipo_usuario) {
+		this.tipo_usuario = tipo_usuario;
 	}
 
 	@Override

@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
@@ -24,8 +26,9 @@ public class Materia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)//gera um id único automaticamente no banco de dados
 	private Long id;
-	@Column
+	@Column(nullable = false)
 	private String nome_materia;
+	@Enumerated(EnumType.STRING)
 	private AnoEscolar anoEscolar;
 	private Professor professor;
 	private ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
