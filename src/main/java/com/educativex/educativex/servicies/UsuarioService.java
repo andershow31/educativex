@@ -1,4 +1,5 @@
 package com.educativex.educativex.servicies;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,4 +44,19 @@ public class UsuarioService {
 	public Usuario insert(Usuario obj) {
 		return usuarioRepo.save(obj);
 	}
+	public void delete(Long id) throws SQLException {
+		usuarioRepo.deleteById(id);
+	}
+	public Usuario update(Long id, Usuario obj) throws SQLException{
+		Usuario entity = usuarioRepo.getReferenceById(id);
+		updateData(entity, obj);		
+		return usuarioRepo.save(null);
+	}
+	public void updateData(Usuario entity, Usuario obj) {
+		entity.setNome(obj.getNome());
+		entity.setEmail(obj.getEmail());
+		entity.setSenha(obj.getSenha());
+		entity.setTipo_usuario(obj.getTipo_usuario());
+	}
+	
 }
