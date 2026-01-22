@@ -6,11 +6,11 @@ import java.util.Objects;
 public class Atividades implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String nome;
-	private Long id;
+	private String id;
 	private Materia materia;
 	public Atividades(){}	
 	
-	public Atividades(String nome, Long id, Materia materia) {
+	public Atividades(String nome, String id, Materia materia) {
 		super();
 		this.nome = nome;
 		this.id = id;
@@ -23,10 +23,10 @@ public class Atividades implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	

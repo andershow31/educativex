@@ -1,7 +1,6 @@
 package com.educativex.educativex.servicies;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,8 +37,8 @@ public class UsuarioService {
 		return professorRepo.findAll();
 	}
 	@Transactional(readOnly=true)
-	public Optional<Usuario> findById(Long id) {
-		return usuarioRepo.findById(id);
+	public Usuario findById(Long id) {
+		return usuarioRepo.findById(id).orElseThrow(() -> new RuntimeException("Id não encontrado"));
 	}
 	public Usuario insert(Usuario obj) {
 		return usuarioRepo.save(obj);
@@ -47,10 +46,10 @@ public class UsuarioService {
 	public void delete(Long id) throws SQLException {
 		usuarioRepo.deleteById(id);
 	}
-	public Usuario update(Long id, Usuario obj) throws SQLException{
-		Usuario entity = usuarioRepo.getReferenceById(id);
+	public Usuario update(Long id, Usuario obj){
+		Usuario entity = usuarioRepo.findById(id).orElseThrow(() -> new RuntimeException("Id não encontrado"));
 		updateData(entity, obj);		
-		return usuarioRepo.save(null);
+		return usuarioRepo.save(entity);
 	}
 	public void updateData(Usuario entity, Usuario obj) {
 		entity.setNome(obj.getNome());

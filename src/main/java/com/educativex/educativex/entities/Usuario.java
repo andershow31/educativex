@@ -4,29 +4,24 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.educativex.educativex.entities.enums.Tipo_usuario;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 
-@Entity
-@Table(name = "tb_usuario",
-uniqueConstraints = 
-@UniqueConstraint(columnNames = {"nome", "email"})
-) //as linhas serão unicas com este comando
+@Document(collection = "usuario")
 public class Usuario implements Serializable{
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)// a segunda anotação serve para criar um id automatico e ir incrementando, indica também que esta será a identificação
-	private Long id;
-	@Column(nullable = false)
+
+
+	@Id
+	private String id;
 	private String nome;
 	private String email;
 	private String senha;
@@ -34,7 +29,7 @@ public class Usuario implements Serializable{
 	public Usuario() {
 	}	
 	
-	public Usuario(Long id, String nome, String email, String senha, Tipo_usuario tipo_usuario) {
+	public Usuario(String id, String nome, String email, String senha, Tipo_usuario tipo_usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -44,10 +39,10 @@ public class Usuario implements Serializable{
 		}
 	
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNome() {
