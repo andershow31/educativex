@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.educativex.educativex.entities.Usuario;
 
-public interface UsuarioRepository extends MongoRepository<Usuario, Long>{
+public interface UsuarioRepository extends MongoRepository<Usuario, String>{
 
 }

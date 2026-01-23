@@ -37,16 +37,16 @@ public class UsuarioService {
 		return professorRepo.findAll();
 	}
 	@Transactional(readOnly=true)
-	public Usuario findById(Long id) {
+	public Usuario findById(String id) {
 		return usuarioRepo.findById(id).orElseThrow(() -> new RuntimeException("Id não encontrado"));
 	}
 	public Usuario insert(Usuario obj) {
 		return usuarioRepo.save(obj);
 	}
-	public void delete(Long id) throws SQLException {
+	public void delete(String id) throws SQLException {
 		usuarioRepo.deleteById(id);
 	}
-	public Usuario update(Long id, Usuario obj){
+	public Usuario update(String id, Usuario obj){
 		Usuario entity = usuarioRepo.findById(id).orElseThrow(() -> new RuntimeException("Id não encontrado"));
 		updateData(entity, obj);		
 		return usuarioRepo.save(entity);

@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.educativex.educativex.entities.Professor;
 
-public interface ProfessorRepository extends MongoRepository<Professor, Long>{
+public interface ProfessorRepository extends MongoRepository<Professor, String>{
 
 }
