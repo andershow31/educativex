@@ -25,16 +25,16 @@ public class MateriaService {
 	}
 
 	@Transactional(readOnly=true)
-	public Materia findById(Long id) {
+	public Materia findById(String id) {
 		return repo.findById(id).orElseThrow(() -> new RuntimeException("Id não encontrado"));
 	}
 	public Materia insert(Materia obj) {
 		return repo.save(obj);
 	}
-	public void delete(Long id) throws SQLException {
+	public void delete(String id) throws SQLException {
 		repo.deleteById(id);
 	}
-	public Materia update(Long id, Materia obj){
+	public Materia update(String id, Materia obj){
 		Materia entity = repo.findById(id).orElseThrow(() -> new RuntimeException("Id não encontrado"));
 		updateData(entity, obj);		
 		return repo.save(entity);
