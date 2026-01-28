@@ -12,9 +12,6 @@ import com.educativex.educativex.entities.enums.Tipo_usuario;
 @Document(collection = "usuario")
 public class Usuario implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 

@@ -7,6 +7,8 @@ import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.educativex.educativex.entities.enums.AnoEscolar;
+
 
 
 @Document(collection = "materia")
@@ -78,7 +80,11 @@ public class Materia implements Serializable{
 	}
 
 
-
+	public void addAluno(ArrayList<Aluno> arr) { // os três pontos indicam que pode ser mais de um argumento
+		for (Aluno aluno: arr) {
+		getListaAlunos().add(aluno);
+		}
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, nome_materia);

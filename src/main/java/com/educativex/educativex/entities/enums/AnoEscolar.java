@@ -1,4 +1,4 @@
-package com.educativex.educativex.entities;
+package com.educativex.educativex.entities.enums;
 
 public enum AnoEscolar {
 	PRIMEIROANO_EM,

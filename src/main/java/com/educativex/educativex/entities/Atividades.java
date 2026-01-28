@@ -3,10 +3,15 @@ package com.educativex.educativex.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "atividades")
 public class Atividades implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String nome;
+	@Id
 	private String id;
+	private String nome;	
 	private Materia materia;
 	public Atividades(){}	
 	
