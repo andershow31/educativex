@@ -48,11 +48,12 @@ public class MateriaService {
 	
 	public Materia deleteAluno(String id, Materia obj, int num) {
 		Materia entity = repo.findById(id).orElseThrow(() -> new RuntimeException("Id da matéria não encontrado"));
-		if (num > entity.getListaAlunos().size()) {//se o numero estiver fora da lista
-			System.out.print("Aluno não existe na lista da matéria");
-		} else {
-		entity.deletarAluno(num);
-		}
+		try {
+			entity.deletarAluno(num);
+		}catch (RuntimeException e) {
+			throw new RuntimeException("Aluno não existe na lista da matéria");
+		}		
+		
 		return repo.save(entity);
 	
 	}
