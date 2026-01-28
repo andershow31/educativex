@@ -22,8 +22,15 @@ public class Materia implements Serializable{
 	private AnoEscolar anoEscolar;
 	private Professor professor;
 	private ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
+	
 	public Materia(){}
 	
+	public Materia(String id, String nome_materia, AnoEscolar anoEscolar) {
+		super();
+		this.id = id;
+		this.nome_materia = nome_materia;
+		this.anoEscolar = anoEscolar;
+	}	
 	
 	
 	public Materia(String id, String nome_materia, AnoEscolar anoEscolar, Professor professor, ArrayList<Aluno> listaAlunos) {
@@ -79,6 +86,9 @@ public class Materia implements Serializable{
 		return listaAlunos;
 	}
 
+	public Aluno deletarAluno(int num) {
+		return getListaAlunos().remove(num);
+	}
 
 	public void addAluno(ArrayList<Aluno> arr) { // os três pontos indicam que pode ser mais de um argumento
 		for (Aluno aluno: arr) {
