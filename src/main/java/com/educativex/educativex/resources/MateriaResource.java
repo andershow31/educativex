@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.educativex.educativex.entities.Usuario;
-import com.educativex.educativex.servicies.UsuarioService;
+import com.educativex.educativex.entities.Materia;
+import com.educativex.educativex.servicies.MateriaService;
 
 @RestController
 
-@RequestMapping("/usuarios")
+@RequestMapping("/materias")
 public class MateriaResource {
 	
 	@Autowired
-	private UsuarioService service;
+	private MateriaService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll(){
-		List<Usuario> list = service.findAll();
+	public ResponseEntity<List<Materia>> findAll(){
+		List<Materia> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	

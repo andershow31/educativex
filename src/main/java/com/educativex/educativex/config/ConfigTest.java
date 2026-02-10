@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.educativex.educativex.entities.Usuario;
 import com.educativex.educativex.entities.enums.Tipo_usuario;
+import com.educativex.educativex.repositories.AtividadesRepository;
+import com.educativex.educativex.repositories.MateriaRepository;
 import com.educativex.educativex.repositories.UsuarioRepository;
 
 @Configuration
@@ -19,7 +21,12 @@ temos que implementar o método run
 */
 	@Autowired
 	private UsuarioRepository userRep;
-	
+
+	@Autowired
+	private AtividadesRepository atvRep;	
+
+	@Autowired
+	private MateriaRepository matRep;
 	
 	
 	
@@ -27,7 +34,13 @@ temos que implementar o método run
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		Usuario u1 = new Usuario(null, "Anderson", "anderson@gmail.com", "senha123", Tipo_usuario.PROFESSOR);
+		Usuario u2 = new Usuario(null, "Emerson", "emerson@gmail.com", "senha123", Tipo_usuario.ALUNO);
+		Usuario u3 = new Usuario(null, "Vanderleison", "cuzao@gmail.com", "senha123", Tipo_usuario.ALUNO);
+		
 		userRep.save(u1);
+		userRep.save(u2);
+		userRep.save(u3);
+		
 	}
 
 }
